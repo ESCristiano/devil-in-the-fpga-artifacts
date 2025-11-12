@@ -1,0 +1,1029 @@
+register_blocks:
+  - name: devil_register_file
+    byte_size: 512
+    comment: |
+        devil-in-fpga register file.
+
+    registers:
+################################################################
+    - name: control
+      comment: |
+        Controls the functions of the IP.
+      bit_fields:
+      - <<:
+        - { name:  EN, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enable the IP
+            0: Disables 
+            1: Enables 
+      - <<:
+        - { name:  Reserved1, bit_assignment:  { width: 4 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Reserved
+      - <<:
+        - { name:  FUNC, bit_assignment:  { width: 4 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Chooses the functions of the IP
+            0b0000: Reserved
+            0b0001: Reserved
+            0b0010: **A**ctive **D**ata **L**eak. The IP issues a snoop request to read an address when the ADLEN bit is active 
+            0b0011: **A**ctive **D**ata **T**ampering. The IP issues a snoop request to write to an address when the ADTEN bit is active
+            0b0100: Reserved
+            0bxxxx: Reserved
+      - <<:
+        - { name:  CRRESP, bit_assignment:  { width: 5 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            The response the IP will send to a snoop request.
+      - <<:
+        - { name:  ACFLT, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Snoop Request Filter
+            0: Disables snoop resquest filter
+            1: Enables snoop resquest filter 
+      - <<:
+        - { name:  ADDRFLT, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Address Filter.
+            0: Disables address filter
+            1: Enables address filter
+      - <<:
+        - { name:  Reserved2, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Reserved
+      - <<:
+        - { name:  Reserved3, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Reserved
+      - <<:
+        - { name:  ADLEN, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enable or disable the **A**ctive **D**ata **L**eak
+            0: Disables Active Data Leak
+            1: Enables Active Data Leak
+      - <<:
+        - { name:  ADTEN, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enable or disable the **A**ctive **D**ata **T**ampering
+            0: Disables Active Data Tampering
+            1: Enables Active Data Tampering
+      - <<:
+        - { name:  ONESHOT, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enables One-Shot Operation. The IP won't do other reply until the IP is disabled and enabled again.
+            0: Disables One-Shot Operation
+            1: Enables One-Shot Operation
+      - <<:
+        - { name:  MONEN, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enable or disable the **Mon**itoring Transactions
+            0: Disables Transactions' Monitoring
+            1: Enables Transactions' Monitoring
+      - <<:
+        - { name:  CMD, bit_assignment:  { width: 4 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Send the command for the devil control to execute
+            0b0000: Upon an event/trigger detection, the IP will steal a cryptographic key.
+            0b0001: Upon an event/trigger detection, the IP will tamper with a data structure.
+            0bxxxx: Reserved
+      - <<:
+        - { name:  STENDEN, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enable or disable the Coherent Trojan capability to perform actions between two trigger patterns. **St**art pattern and a **En**d pattern.
+            0: Feature Disabled. Just **St**art pattern is used. 
+            1: Feature Enabled. **St**art pattern and a **En**d pattern are used.
+      - <<:
+        - { name:  SNEAKEN, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enable or disable the Sneak Snoop feature. This feature, if enable, will insert a snoop between the snoop request and snoop response.  
+            0: Feature Disabled.
+            1: Feature Enabled. 
+      - <<:
+        - { name:  REREADSEN, bit_assignment:  { width: 1 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            Enable or disable the Redirection of Read Snoops.
+            0: Feature Disabled.
+            1: Feature Enabled. 
+      - <<:
+        - { name:  Res, bit_assignment:  { width: 3 }, type: reserved}
+
+################################################################           
+    - name: status
+      comment: |
+        Status of the IP.
+      bit_fields:
+      - <<:
+        - { name:  Reserved, bit_assignment:  { width: 1 }, type: [custom, sw_write: clear_1, hw_set: true ], initial_value: 0}
+        - comment: |
+            Reserved
+      - <<:
+        - { name:  BUSY, bit_assignment:  { width: 1 }, type: [custom, sw_write: none, hw_set: true, hw_clear: true ],  initial_value: 0}
+        - comment: |
+            The devil is busy doing a reply.
+            0: Not busy
+            1: Busy doing a reply
+      - <<:
+        - { name:  DEANON_COUNT, bit_assignment:  { width: 16 }, type: ro  ,  initial_value: 0}
+        - comment: |
+            Counts the number of successful matches (i.e., deanonimizitions), up to 65535. This field is cleaned when the IP is disabled, i.e., control.en = 0.
+      - <<:
+        - {name: Res, bit_assignment:  { width: 14 }, type: reserved}
+
+################################################################
+    - name: delay
+      comment: |
+        Sets the delay to reply to CCI snoop requests.
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: acsnoop
+      comment: |
+        Snoop request filter. When active, in Ctrl Reg, the IP will only reply to the selected AC.
+      bit_fields:
+      - <<:
+        - { name:  type, bit_assignment:  { width: 4 }, type: rw  ,  initial_value: 0}
+        - comment: |
+            0bxxxx: Acsnoop x
+      - { name:  Res, bit_assignment:  { width: 28 }, type: reserved} 
+
+################################################################
+    - name: base_addr
+      comment: |
+        Address filter, base address.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: mem_size
+      comment: |
+        Address filter, size of the memory region to filter.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: arsnoop
+      comment: |
+        Define the type of read snoop.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: l_araddr
+      comment: |
+        Low 32 bits of ARADDR.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: h_araddr
+      comment: |
+        High 8 bits of ARADDR. The remaining bits are ignored.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: awsnoop
+      comment: |
+        Define the type of write snoop.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: l_awaddr
+      comment: |
+        Low 32 bits of AWADDR.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+    - name: h_awaddr
+      comment: |
+        High 8 bits of AWADDR. The remaining bits are ignored.
+      bit_fields:
+      - { name:  Data, bit_assignment:  { width: 32 }, type: rw  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_0
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x40
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_0
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x40
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_1
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x44
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_1
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x44
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_2
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x48
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_2
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x48
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_3
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x4C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_3
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x4C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_4
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x50
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_4
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x50
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_5
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x54
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_5
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x54
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_6
+      comment: |
+        Word X of the read cache line.
+      offset_address: 0x58
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_6
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x58
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_7
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x5C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_7
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x5C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_8
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x60
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_8
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x60
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_9
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x64
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_9
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x64
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_10
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x68
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_10
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x68
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_11
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x6C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_11
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x6C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_12
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x70
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_12
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x70
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_13
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x74
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_13
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x74
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_14
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x78
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_14
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x78
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+# rdata_x and wdata_x are the same register, but with different
+# bit types. rdata_x register is read only and the wdata_x 
+# register is write only. So we can use the same address for both
+# registers. This is a rggen feature
+################################################################
+    - name: rdata_15
+      comment: |
+        Word X of the read cache line
+      offset_address: 0x7C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: wdata_15
+      comment: |
+        Word X of the write cache line
+      offset_address: 0x7C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+  
+################################################################
+## This registers are used to store the cache line patetrn that
+## we want to detect. 
+################################################################
+    - name: start_pattern_0
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x80
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_1
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x84
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_2
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x88
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_3
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x8C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_4
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x90
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_5
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x94
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_6
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x98
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_7
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x9C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_8
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xA0
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_9
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xA4
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_10
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xA8
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_11
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xAC
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_12
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xB0
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_13
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xB4
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: start_pattern_14
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xB8
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+#################################################################
+    - name: start_pattern_15
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xBC
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+## The size of the pattern in words, it could range from 1 word
+## up to 16 (i.e., cache line)
+################################################################
+    - name: start_pattern_size
+      comment: |
+        The size of the pattern in words, it could range from 1 word up to 16 (i.e., cache line)
+      offset_address: 0xC0
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+## Define the words to be tamper with in a CL
+################################################################
+    - name: word_index
+      comment: |
+        Define the words to be tamper with in a CL. This registers uses 16 bits, one bit per word. When the bit is 1, the word will be tampered with the data written to DATAX registers.
+      offset_address: 0xC4
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+## This registers are used to store the cache line patetrn that
+## we want to detect. 
+################################################################
+    - name: end_pattern_0
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xC8
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_1
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xCC
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_2
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xD0
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_3
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xD4
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_4
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xD8
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_5
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xDC
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_6
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xE0
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_7
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xE4
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_8
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xE8
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_9
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xEC
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_10
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xF0
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_11
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xF4
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_12
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xF8
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_13
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0xFC
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: end_pattern_14
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x100
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+#################################################################
+    - name: end_pattern_15
+      comment: |
+        Word X of the cache line pattern to be searched for
+      offset_address: 0x104
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+## The size of the pattern in words, it could range from 1 word
+## up to 16 (i.e., cache line)
+################################################################
+    - name: end_pattern_size
+      comment: |
+        The size of the pattern in words, it could range from 1 word up to 16 (i.e., cache line)
+      offset_address: 0x108
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: deanon_addr 
+      comment: |
+        The Physical address corresponding to the deanonimize code/data.
+      offset_address: 0x10C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: ro  ,  initial_value: 0}
+
+################################################################
+    - name: sneak_target_snoop
+      comment: |
+        Target snoop to trigger the writes redirection.
+      offset_address: 0x110
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+      
+################################################################
+    - name: sneak_target_addr
+      comment: |
+        Target snoop address to trigger the writes redirection.
+      offset_address: 0x114
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: sneak_target_size
+      comment: |
+        Region size (added to the target address) to trigger the writes redirection.
+      offset_address: 0x118
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: sneak_addr
+      comment: |
+        Address to issue the snoop.
+      offset_address: 0x11C
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+################################################################
+    - name: sneak_snoop
+      comment: |
+        Type of snoop to issue.
+      offset_address: 0x120
+      bit_fields:
+      - { name: data, bit_assignment:  { width: 32 }, type: wo  ,  initial_value: 0}
+
+
+    # - name: register_2
+    #   offset_address: 0x08
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 4 }, type: ro }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  8, width: 8 }, type: rof, initial_value: 0xab }
+    #   - { name: bit_field_2, bit_assignment: { lsb: 16, width: 4 }, type: rol, initial_value: 0    }
+    #   - { name: bit_field_3, bit_assignment: { lsb: 20, width: 4 }, type: rol, initial_value: 0, reference: register_3.bit_field_3 }
+    #   - { name: bit_field_4, bit_assignment: { lsb: 24, width: 8 }, type: reserved }
+
+    # - name: register_3
+    #   offset_address: 0x08
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 4 }, type: wo , initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  4, width: 4 }, type: wo1, initial_value: 0 }
+    #   - { name: bit_field_2, bit_assignment: { lsb:  8, width: 4 }, type: w0trg }
+    #   - { name: bit_field_3, bit_assignment: { lsb: 16, width: 4 }, type: w1trg }
+
+    # - name: register_4
+    #   offset_address: 0x0C
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 4 }, type: rc, initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  8, width: 4 }, type: rc, initial_value: 0, }
+    #   - { name: bit_field_2, bit_assignment: { lsb: 12, width: 4 }, type: ro,                   reference: register_4.bit_field_1 }
+    #   - { name: bit_field_3, bit_assignment: { lsb: 16, width: 4 }, type: rs, initial_value: 0 }
+
+    # - name: register_5
+    #   offset_address: 0x10
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 2 }, type: rwc, initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  2, width: 2 }, type: rwc, initial_value: 0, reference: register_3.bit_field_2 }
+    #   - { name: bit_field_2, bit_assignment: { lsb:  4, width: 2 }, type: rws, initial_value: 0 }
+    #   - { name: bit_field_3, bit_assignment: { lsb:  6, width: 2 }, type: rws, initial_value: 0, reference: register_3.bit_field_3 }
+    #   - { name: bit_field_4, bit_assignment: { lsb:  8, width: 2 }, type: rwe, initial_value: 0 }
+    #   - { name: bit_field_5, bit_assignment: { lsb: 10, width: 2 }, type: rwe, initial_value: 0, reference: register_0.bit_field_2 }
+    #   - { name: bit_field_6, bit_assignment: { lsb: 12, width: 2 }, type: rwe, initial_value: 0, reference: register_1 }
+    #   - { name: bit_field_7, bit_assignment: { lsb: 16, width: 2 }, type: rwl, initial_value: 0 }
+    #   - { name: bit_field_8, bit_assignment: { lsb: 18, width: 2 }, type: rwl, initial_value: 0, reference: register_0.bit_field_2 }
+    #   - { name: bit_field_9, bit_assignment: { lsb: 20, width: 2 }, type: rwl, initial_value: 0, reference: register_1 }
+
+    # - name: register_6
+    #   offset_address: 0x14
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 4 }, type: w0c, initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  4, width: 4 }, type: w0c, initial_value: 0, reference: register_0.bit_field_0 }
+    #   - { name: bit_field_2, bit_assignment: { lsb:  8, width: 4 }, type: ro ,                   reference: register_6.bit_field_1 }
+    #   - { name: bit_field_3, bit_assignment: { lsb: 12, width: 4 }, type: w1c, initial_value: 0 }
+    #   - { name: bit_field_4, bit_assignment: { lsb: 16, width: 4 }, type: w1c, initial_value: 0, reference: register_0.bit_field_0 }
+    #   - { name: bit_field_5, bit_assignment: { lsb: 20, width: 4 }, type: ro ,                   reference: register_6.bit_field_4 }
+    #   - { name: bit_field_6, bit_assignment: { lsb: 24, width: 4 }, type: w0s, initial_value: 0 }
+    #   - { name: bit_field_7, bit_assignment: { lsb: 28, width: 4 }, type: w1s, initial_value: 0 }
+    #   - { name: bit_field_8, bit_assignment: { lsb: 32, width: 4 }, type: w0t, initial_value: 0 }
+    #   - { name: bit_field_9, bit_assignment: { lsb: 36, width: 4 }, type: w1t, initial_value: 0 }
+
+    # - name: register_7
+    #   offset_address: 0x1C
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 4 }, type: w0crs, initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  8, width: 4 }, type: w1crs, initial_value: 0 }
+    #   - { name: bit_field_2, bit_assignment: { lsb: 16, width: 4 }, type: w0src, initial_value: 0 }
+    #   - { name: bit_field_3, bit_assignment: { lsb: 24, width: 4 }, type: w1src, initial_value: 0 }
+
+    # - name: register_8
+    #   offset_address: 0x20
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 4 }, type: wc  , initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  8, width: 4 }, type: ws  , initial_value: 0 }
+    #   - { name: bit_field_2, bit_assignment: { lsb: 16, width: 4 }, type: woc , initial_value: 0 }
+    #   - { name: bit_field_3, bit_assignment: { lsb: 24, width: 4 }, type: wos , initial_value: 0 }
+    #   - { name: bit_field_4, bit_assignment: { lsb: 32, width: 4 }, type: wcrs, initial_value: 0 }
+    #   - { name: bit_field_5, bit_assignment: { lsb: 40, width: 4 }, type: wsrc, initial_value: 0 }
+
+    # - name: register_9
+    #   offset_address: 0x28
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 2 }, type: rwtrg  , initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb:  2, width: 2 }, type: rotrg  }
+    #   - { name: bit_field_2, bit_assignment: { lsb:  4, width: 2 }, type: wotrg  , initial_value: 0 }
+    #   - { name: bit_field_3, bit_assignment: { lsb:  6, width: 2 }, type: rowotrg, initial_value: 0 }
+    #   - { name: bit_field_4, bit_assignment: { lsb:  8, width: 2 }, type: row0trg }
+    #   - { name: bit_field_5, bit_assignment: { lsb: 10, width: 2 }, type: row1trg }
+
+    # - name: register_10
+    #   offset_address: 0x30
+    #   size: [4, step: 8]
+    #   bit_fields:
+    #   - <<:
+    #     # bit assignments: [1:0] [ 9: 8] [17:16] [25:24]
+    #     - { name: bit_field_0, bit_assignment: { lsb: 0, width: 2, sequence_size: 4, step: 8 }, type: rw }
+    #     - initial_value: 0
+    #   - <<:
+    #     # bit assignments: [3:2] [11:10] [19:18] [27:26]
+    #     - { name: bit_field_1, bit_assignment: { lsb: 2, width: 2, sequence_size: 4, step: 8 }, type: rw }
+    #     - initial_value: { default: 0 }
+    #   - <<:
+    #     # bit assignments: [5:4] [13:12] [21:20] [29:28]
+    #     - { name: bit_field_2, bit_assignment: { lsb: 4, width: 2, sequence_size: 4, step: 8 }, type: rw }
+    #     - initial_value: [0, 1, 2, 3]
+
+    # - name: register_11
+    #   offset_address: 0x50
+    #   size: [2, 4]
+    #   type: [indirect, register_0.bit_field_0, register_0.bit_field_1, [register_0.bit_field_2, 0]]
+    #   bit_fields:
+    #   - # bit assignments: [ 7:0] [23:16] [39:32] [55:48]
+    #     { name: bit_field_0, bit_assignment: { lsb: 0, width: 8, sequence_size: 4, step: 16 }, type: rw, initial_value: 0 }
+    #   - # bit assignments: [15:8] [31:24] [47:40] [63:56]
+    #     { name: bit_field_1, bit_assignment: { lsb: 8, width: 8, sequence_size: 4, step: 16 }, type: rw, initial_value: 0 }
+
+    # - name: register_12
+    #   offset_address: 0x50
+    #   type: [indirect, [register_0.bit_field_2, 1]]
+    #   bit_fields:
+    #   - { name: bit_field_0, bit_assignment: { lsb:  0, width: 1}, type: rw, initial_value: 0 }
+    #   - { name: bit_field_1, bit_assignment: { lsb: 32, width: 1}, type: rw, initial_value: 0 }
+
+    # - name: register_13
+    #   offset_address: 0x60
+    #   bit_fields:
+    #   - # same with RW bit field type
+    #     { name: bit_field_0, bit_assignment: { width: 2 }, initial_value: 0, type: [custom                                         ] }
+    #   - # same with RO bit filed type
+    #     { name: bit_field_1, bit_assignment: { width: 2 },                   type: [custom, sw_write: none                         ] }
+    #   - # same with W1 bit field type
+    #     { name: bit_field_2, bit_assignment: { width: 2 }, initial_value: 0, type: [custom, sw_write_once: true                    ] }
+    #   - # same with RWTRG bit field type
+    #     { name: bit_field_3, bit_assignment: { width: 2 }, initial_value: 0, type: [custom, write_trigger: true, read_trigger: true] }
+    #   - # same with W1SRC bit field type
+    #     { name: bit_field_4, bit_assignment: { width: 2 }, initial_value: 0, type: [custom, sw_write: set_1  , sw_read: clear      ] }
+    #   - # same with W1CRS bit field type
+    #     { name: bit_field_5, bit_assignment: { width: 2 }, initial_value: 0, type: [custom, sw_write: clear_1, sw_read: set        ] }
+    #   - # same with W1S bit field type
+    #     { name: bit_field_6, bit_assignment: { width: 2 }, initial_value: 0, type: [custom, sw_write: set_1  , hw_clear: true      ] }
+    #   - # same with W1C bit field type
+    #     { name: bit_field_7, bit_assignment: { width: 2 }, initial_value: 0, type: [custom, sw_write: clear_1, hw_set: true        ] }
+    #   - # RW bit field with HW write
+    #     { name: bit_field_8, bit_assignment: { width: 2 }, initial_value: 0, type: [custom, hw_write: true                         ] }
+
+    # - name: register_14
+    #   offset_address: 0x70
+    #   type: reserved
+
+    # - name: register_15
+    #   offset_address: 0x80
+    #   size: 32
+    #   type: external

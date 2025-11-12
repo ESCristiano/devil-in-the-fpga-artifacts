@@ -1,0 +1,5 @@
+# ignore all
+vivado*
+.Xil
+backstabbing_devil
+.vscode/

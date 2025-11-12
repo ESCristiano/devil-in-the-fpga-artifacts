@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="devil_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="axi_vip_pkg" />
+            <top_module name="devil_tb" />
+            <top_module name="glbl" />
+            <top_module name="std" />
+            <top_module name="vcomponents" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="646.130 ns"></ZoomStartTime>
+      <ZoomEndTime time="658.671 ns"></ZoomEndTime>
+      <Cursor1Time time="649.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="272"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="112" />
+   <wvobject type="protoinst" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/s01_axi">
+      <obj_property name="children_use_element_short_name">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="EnumTransactionColorTable">0=blank 1=#D399FF 2=pink</obj_property>
+      <obj_property name="EnumTransactionValueTable">0=blank;1=Read;2=Write;3=Read/Write</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">turquoise</obj_property>
+      <obj_property name="Render_Data">/devil_tb/DUT/design_1_i/backstabber_0/s01_axi.readWriteSummary</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CellHeight">36</obj_property>
+      <obj_property name="ElementShortName">s01_axi</obj_property>
+      <obj_property name="ObjectShortName">s01_axi</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/resp">
+      <obj_property name="ElementShortName">resp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">resp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/tb_reset">
+      <obj_property name="ElementShortName">tb_reset</obj_property>
+      <obj_property name="ObjectShortName">tb_reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/tb_clk">
+      <obj_property name="ElementShortName">tb_clk</obj_property>
+      <obj_property name="ObjectShortName">tb_clk</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group157">
+      <obj_property name="label">Slave_Mmeory</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_araddr">
+         <obj_property name="ElementShortName">s_axi_araddr[43:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_araddr[43:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_arlen">
+         <obj_property name="ElementShortName">s_axi_arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_arburst">
+         <obj_property name="ElementShortName">s_axi_arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_arcache">
+         <obj_property name="ElementShortName">s_axi_arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_arprot">
+         <obj_property name="ElementShortName">s_axi_arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_arqos">
+         <obj_property name="ElementShortName">s_axi_arqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_arvalid">
+         <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_arready">
+         <obj_property name="ElementShortName">s_axi_arready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arready</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_rdata">
+         <obj_property name="ElementShortName">s_axi_rdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_rresp">
+         <obj_property name="ElementShortName">s_axi_rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_rlast">
+         <obj_property name="ElementShortName">s_axi_rlast</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_rvalid">
+         <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/axi_vip_1/s_axi_rready">
+         <obj_property name="ElementShortName">s_axi_rready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rack">
+      <obj_property name="ElementShortName">rack</obj_property>
+      <obj_property name="ObjectShortName">rack</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group43">
+      <obj_property name="label">Backstabber</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/debug_snoop_state">
+         <obj_property name="ElementShortName">debug_snoop_state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_snoop_state[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/debug_status">
+         <obj_property name="ElementShortName">debug_status[31:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_status[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/crvalid">
+         <obj_property name="ElementShortName">crvalid</obj_property>
+         <obj_property name="ObjectShortName">crvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_acsnoop_reg">
+         <obj_property name="ElementShortName">i_acsnoop_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i_acsnoop_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_base_addr_reg">
+         <obj_property name="ElementShortName">i_base_addr_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i_base_addr_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg">
+         <obj_property name="ElementShortName">i_control_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i_control_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="vbus" fp_name="vbus249">
+         <obj_property name="label">delay</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[31]">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">[31]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[30]">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">[30]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[29]">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">[29]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[28]">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">[28]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[27]">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">[27]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[26]">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">[26]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[25]">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">[25]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[24]">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">[24]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[23]">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[22]">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[21]">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[20]">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[19]">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">[19]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_control_reg[18]">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">[18]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/debug_counter">
+         <obj_property name="ElementShortName">debug_counter[63:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_counter[63:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_addr_size_reg">
+         <obj_property name="ElementShortName">i_addr_size_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i_addr_size_reg[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rdata">
+      <obj_property name="ElementShortName">rdata[127:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group167">
+      <obj_property name="label">CD Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/cddata">
+         <obj_property name="ElementShortName">cddata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">cddata[127:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/cdlast">
+         <obj_property name="ElementShortName">cdlast</obj_property>
+         <obj_property name="ObjectShortName">cdlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/cdready">
+         <obj_property name="ElementShortName">cdready</obj_property>
+         <obj_property name="ObjectShortName">cdready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/cdvalid">
+         <obj_property name="ElementShortName">cdvalid</obj_property>
+         <obj_property name="ObjectShortName">cdvalid</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider170" type="divider">
+      <obj_property name="label">SNOOPS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group168">
+      <obj_property name="label">CR Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/crvalid">
+         <obj_property name="ElementShortName">crvalid</obj_property>
+         <obj_property name="ObjectShortName">crvalid</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/crresp">
+         <obj_property name="ElementShortName">crresp[4:0]</obj_property>
+         <obj_property name="ObjectShortName">crresp[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="group482">
+         <obj_property name="label">SNOOP</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/acaddr">
+            <obj_property name="ElementShortName">acaddr[43:0]</obj_property>
+            <obj_property name="ObjectShortName">acaddr[43:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/acsnoop">
+            <obj_property name="ElementShortName">acsnoop[3:0]</obj_property>
+            <obj_property name="ObjectShortName">acsnoop[3:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/acready">
+            <obj_property name="ElementShortName">acready</obj_property>
+            <obj_property name="ObjectShortName">acready</obj_property>
+            <obj_property name="CustomSignalColor">#D2691E</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/acvalid">
+            <obj_property name="ElementShortName">acvalid</obj_property>
+            <obj_property name="ObjectShortName">acvalid</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group169">
+      <obj_property name="label">AC Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/acaddr">
+         <obj_property name="ElementShortName">acaddr[43:0]</obj_property>
+         <obj_property name="ObjectShortName">acaddr[43:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/acsnoop_0">
+         <obj_property name="ElementShortName">acsnoop_0[3:0]</obj_property>
+         <obj_property name="ObjectShortName">acsnoop_0[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/acvalid">
+         <obj_property name="ElementShortName">acvalid</obj_property>
+         <obj_property name="ObjectShortName">acvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/acready">
+         <obj_property name="ElementShortName">acready</obj_property>
+         <obj_property name="ObjectShortName">acready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_control_EN">
+         <obj_property name="ElementShortName">w_control_EN</obj_property>
+         <obj_property name="ObjectShortName">w_control_EN</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider171" type="divider">
+      <obj_property name="label">AW Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group139">
+      <obj_property name="label">AW_Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awaddr">
+         <obj_property name="ElementShortName">awaddr[43:0]</obj_property>
+         <obj_property name="ObjectShortName">awaddr[43:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awvalid">
+         <obj_property name="ElementShortName">awvalid</obj_property>
+         <obj_property name="ObjectShortName">awvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awsnoop">
+         <obj_property name="ElementShortName">awsnoop[2:0]</obj_property>
+         <obj_property name="ObjectShortName">awsnoop[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="group174">
+         <obj_property name="label">other signals</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awbar">
+            <obj_property name="ElementShortName">awbar[1:0]</obj_property>
+            <obj_property name="ObjectShortName">awbar[1:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awburst">
+            <obj_property name="ElementShortName">awburst[1:0]</obj_property>
+            <obj_property name="ObjectShortName">awburst[1:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awcache">
+            <obj_property name="ElementShortName">awcache[3:0]</obj_property>
+            <obj_property name="ObjectShortName">awcache[3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awdomain">
+            <obj_property name="ElementShortName">awdomain[1:0]</obj_property>
+            <obj_property name="ObjectShortName">awdomain[1:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awid">
+            <obj_property name="ElementShortName">awid[5:0]</obj_property>
+            <obj_property name="ObjectShortName">awid[5:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awlen">
+            <obj_property name="ElementShortName">awlen[7:0]</obj_property>
+            <obj_property name="ObjectShortName">awlen[7:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awlock">
+            <obj_property name="ElementShortName">awlock</obj_property>
+            <obj_property name="ObjectShortName">awlock</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awprot">
+            <obj_property name="ElementShortName">awprot[2:0]</obj_property>
+            <obj_property name="ObjectShortName">awprot[2:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awqos">
+            <obj_property name="ElementShortName">awqos[3:0]</obj_property>
+            <obj_property name="ObjectShortName">awqos[3:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awready">
+            <obj_property name="ElementShortName">awready</obj_property>
+            <obj_property name="ObjectShortName">awready</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awregion">
+            <obj_property name="ElementShortName">awregion[3:0]</obj_property>
+            <obj_property name="ObjectShortName">awregion[3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awsize">
+            <obj_property name="ElementShortName">awsize[2:0]</obj_property>
+            <obj_property name="ObjectShortName">awsize[2:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/awuser">
+            <obj_property name="ElementShortName">awuser[15:0]</obj_property>
+            <obj_property name="ObjectShortName">awuser[15:0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group140">
+      <obj_property name="label">W_Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/wdata">
+         <obj_property name="ElementShortName">wdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">wdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/wlast">
+         <obj_property name="ElementShortName">wlast</obj_property>
+         <obj_property name="ObjectShortName">wlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/wready">
+         <obj_property name="ElementShortName">wready</obj_property>
+         <obj_property name="ObjectShortName">wready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/wvalid">
+         <obj_property name="ElementShortName">wvalid</obj_property>
+         <obj_property name="ObjectShortName">wvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/wstrb">
+         <obj_property name="ElementShortName">wstrb[15:0]</obj_property>
+         <obj_property name="ObjectShortName">wstrb[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/wuser">
+         <obj_property name="ElementShortName">wuser</obj_property>
+         <obj_property name="ObjectShortName">wuser</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group141">
+      <obj_property name="label">B_Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/bresp">
+         <obj_property name="ElementShortName">bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/bvalid">
+         <obj_property name="ElementShortName">bvalid</obj_property>
+         <obj_property name="ObjectShortName">bvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/bready">
+         <obj_property name="ElementShortName">bready</obj_property>
+         <obj_property name="ObjectShortName">bready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider174" type="divider">
+      <obj_property name="label">AR Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group173">
+      <obj_property name="label">AR_Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/arburst">
+         <obj_property name="ElementShortName">arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/arsize">
+         <obj_property name="ElementShortName">arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/arlen">
+         <obj_property name="ElementShortName">arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/arsnoop">
+         <obj_property name="ElementShortName">arsnoop[3:0]</obj_property>
+         <obj_property name="ObjectShortName">arsnoop[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/araddr">
+         <obj_property name="ElementShortName">araddr[43:0]</obj_property>
+         <obj_property name="ObjectShortName">araddr[43:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group190">
+      <obj_property name="label">R_Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rack">
+         <obj_property name="ElementShortName">rack</obj_property>
+         <obj_property name="ObjectShortName">rack</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rdata">
+         <obj_property name="ElementShortName">rdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">rdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rid">
+         <obj_property name="ElementShortName">rid[5:0]</obj_property>
+         <obj_property name="ObjectShortName">rid[5:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rlast">
+         <obj_property name="ElementShortName">rlast</obj_property>
+         <obj_property name="ObjectShortName">rlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rready">
+         <obj_property name="ElementShortName">rready</obj_property>
+         <obj_property name="ObjectShortName">rready</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rresp">
+         <obj_property name="ElementShortName">rresp[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rresp[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/ruser">
+         <obj_property name="ElementShortName">ruser</obj_property>
+         <obj_property name="ObjectShortName">ruser</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/rvalid">
+         <obj_property name="ElementShortName">rvalid</obj_property>
+         <obj_property name="ObjectShortName">rvalid</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider172" type="divider">
+      <obj_property name="label">FSM States</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/debug_snoop_state">
+      <obj_property name="ElementShortName">debug_snoop_state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_snoop_state[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/fsm_devil_state_passive">
+      <obj_property name="ElementShortName">fsm_devil_state_passive[4:0]</obj_property>
+      <obj_property name="ObjectShortName">fsm_devil_state_passive[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/o_fsm_devil_state_active">
+      <obj_property name="ElementShortName">o_fsm_devil_state_active[4:0]</obj_property>
+      <obj_property name="ObjectShortName">o_fsm_devil_state_active[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/o_fsm_devil_controller">
+      <obj_property name="ElementShortName">o_fsm_devil_controller[4:0]</obj_property>
+      <obj_property name="ObjectShortName">o_fsm_devil_controller[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/i_cache_line_active_devil">
+      <obj_property name="ElementShortName">i_cache_line_active_devil[511:0]</obj_property>
+      <obj_property name="ObjectShortName">i_cache_line_active_devil[511:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/r_cache_line_to_ps">
+      <obj_property name="ElementShortName">r_cache_line_to_ps[511:0]</obj_property>
+      <obj_property name="ObjectShortName">r_cache_line_to_ps[511:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/fsm_register_cl">
+      <obj_property name="ElementShortName">fsm_register_cl[4:0]</obj_property>
+      <obj_property name="ObjectShortName">fsm_register_cl[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/r_reply">
+      <obj_property name="ElementShortName">r_reply</obj_property>
+      <obj_property name="ObjectShortName">r_reply</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/i_end_active_devil">
+      <obj_property name="ElementShortName">i_end_active_devil</obj_property>
+      <obj_property name="ObjectShortName">i_end_active_devil</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/r_one_shot">
+      <obj_property name="ElementShortName">r_one_shot</obj_property>
+      <obj_property name="ObjectShortName">r_one_shot</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/o_busy">
+      <obj_property name="ElementShortName">o_busy</obj_property>
+      <obj_property name="ObjectShortName">o_busy</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/i_trigger">
+      <obj_property name="ElementShortName">i_trigger</obj_property>
+      <obj_property name="ObjectShortName">i_trigger</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_read_cache_line">
+      <obj_property name="ElementShortName">w_read_cache_line[511:0]</obj_property>
+      <obj_property name="ObjectShortName">w_read_cache_line[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider175" type="divider">
+      <obj_property name="label">ACTIVE DEVIL SIGNALS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_from_ctrl_araddr">
+      <obj_property name="ElementShortName">w_from_ctrl_araddr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">w_from_ctrl_araddr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_from_ctrl_arsnoop">
+      <obj_property name="ElementShortName">w_from_ctrl_arsnoop[3:0]</obj_property>
+      <obj_property name="ObjectShortName">w_from_ctrl_arsnoop[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_from_ctrl_awaddr">
+      <obj_property name="ElementShortName">w_from_ctrl_awaddr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">w_from_ctrl_awaddr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_from_ctrl_awsnoop">
+      <obj_property name="ElementShortName">w_from_ctrl_awsnoop[2:0]</obj_property>
+      <obj_property name="ObjectShortName">w_from_ctrl_awsnoop[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_from_ctrl_ardomain">
+      <obj_property name="ElementShortName">w_from_ctrl_ardomain[1:0]</obj_property>
+      <obj_property name="ObjectShortName">w_from_ctrl_ardomain[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_from_ctrl_active_func">
+      <obj_property name="ElementShortName">w_from_ctrl_active_func[3:0]</obj_property>
+      <obj_property name="ObjectShortName">w_from_ctrl_active_func[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/w_func">
+      <obj_property name="ElementShortName">w_func[3:0]</obj_property>
+      <obj_property name="ObjectShortName">w_func[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/i_internal_adt_en">
+      <obj_property name="ElementShortName">i_internal_adt_en</obj_property>
+      <obj_property name="ObjectShortName">i_internal_adt_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider175" type="divider">
+      <obj_property name="label">PASSIVE DEVIL SIGNALS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/i_cache_line">
+      <obj_property name="ElementShortName">i_cache_line[511:0]</obj_property>
+      <obj_property name="ObjectShortName">i_cache_line[511:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/r_araddr">
+      <obj_property name="ElementShortName">r_araddr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">r_araddr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/r_arsnoop">
+      <obj_property name="ElementShortName">r_arsnoop[3:0]</obj_property>
+      <obj_property name="ObjectShortName">r_arsnoop[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/r_awaddr">
+      <obj_property name="ElementShortName">r_awaddr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">r_awaddr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/r_awsnoop">
+      <obj_property name="ElementShortName">r_awsnoop[2:0]</obj_property>
+      <obj_property name="ObjectShortName">r_awsnoop[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/passive_devil_inst/r_ardomain">
+      <obj_property name="ElementShortName">r_ardomain[1:0]</obj_property>
+      <obj_property name="ObjectShortName">r_ardomain[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider446" type="divider">
+      <obj_property name="label">DEVIL CONTROLLER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/w_mon_en">
+      <obj_property name="ElementShortName">w_mon_en</obj_property>
+      <obj_property name="ObjectShortName">w_mon_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/i_trigger">
+      <obj_property name="ElementShortName">i_trigger</obj_property>
+      <obj_property name="ObjectShortName">i_trigger</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/o_trigger_active">
+      <obj_property name="ElementShortName">o_trigger_active</obj_property>
+      <obj_property name="ObjectShortName">o_trigger_active</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/r_read_snoop_en">
+      <obj_property name="ElementShortName">r_read_snoop_en</obj_property>
+      <obj_property name="ObjectShortName">r_read_snoop_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/r_trigger_active">
+      <obj_property name="ElementShortName">r_trigger_active</obj_property>
+      <obj_property name="ObjectShortName">r_trigger_active</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/r_controller_araddr">
+      <obj_property name="ElementShortName">r_controller_araddr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">r_controller_araddr[43:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/r_controller_arsnoop">
+      <obj_property name="ElementShortName">r_controller_arsnoop[3:0]</obj_property>
+      <obj_property name="ObjectShortName">r_controller_arsnoop[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/o_controller_signals">
+      <obj_property name="ElementShortName">o_controller_signals[101:0]</obj_property>
+      <obj_property name="ObjectShortName">o_controller_signals[101:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/i_internal_adl_en">
+      <obj_property name="ElementShortName">i_internal_adl_en</obj_property>
+      <obj_property name="ObjectShortName">i_internal_adl_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_adl_en">
+      <obj_property name="ElementShortName">w_adl_en</obj_property>
+      <obj_property name="ObjectShortName">w_adl_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/i_func">
+      <obj_property name="ElementShortName">i_func[3:0]</obj_property>
+      <obj_property name="ObjectShortName">i_func[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/i_trigger_from_ctr">
+      <obj_property name="ElementShortName">i_trigger_from_ctr</obj_property>
+      <obj_property name="ObjectShortName">i_trigger_from_ctr</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_araddr">
+      <obj_property name="ElementShortName">w_araddr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">w_araddr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_in_fpga_inst/active_devil_inst/w_arsnoop">
+      <obj_property name="ElementShortName">w_arsnoop[3:0]</obj_property>
+      <obj_property name="ObjectShortName">w_arsnoop[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/o_output_addr">
+      <obj_property name="ElementShortName">o_output_addr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">o_output_addr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/i_cache_line_active_devil">
+      <obj_property name="ElementShortName">i_cache_line_active_devil[511:0]</obj_property>
+      <obj_property name="ObjectShortName">i_cache_line_active_devil[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider371" type="divider">
+      <obj_property name="label">MATCH_PATTERN</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/i_cache_line">
+      <obj_property name="ElementShortName">i_cache_line[511:0]</obj_property>
+      <obj_property name="ObjectShortName">i_cache_line[511:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/i_pattern">
+      <obj_property name="ElementShortName">i_pattern[511:0]</obj_property>
+      <obj_property name="ObjectShortName">i_pattern[511:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/i_pattern_size">
+      <obj_property name="ElementShortName">i_pattern_size[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_pattern_size[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/i_trigger">
+      <obj_property name="ElementShortName">i_trigger</obj_property>
+      <obj_property name="ObjectShortName">i_trigger</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/o_partial_match">
+      <obj_property name="ElementShortName">o_partial_match</obj_property>
+      <obj_property name="ObjectShortName">o_partial_match</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/o_op_end">
+      <obj_property name="ElementShortName">o_op_end</obj_property>
+      <obj_property name="ObjectShortName">o_op_end</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/o_match_offset">
+      <obj_property name="ElementShortName">o_match_offset[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_match_offset[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/o_full_match">
+      <obj_property name="ElementShortName">o_full_match</obj_property>
+      <obj_property name="ObjectShortName">o_full_match</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/w_cache_line_word">
+      <obj_property name="ElementShortName">w_cache_line_word[15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_cache_line_word[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/w_match_word">
+      <obj_property name="ElementShortName">w_match_word[15:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_match_word[15:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider178" type="divider">
+      <obj_property name="label">REGISTER FILE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group78">
+      <obj_property name="label">Register_file</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_control_EN">
+         <obj_property name="ElementShortName">w_control_EN</obj_property>
+         <obj_property name="ObjectShortName">w_control_EN</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_control_FUNC">
+         <obj_property name="ElementShortName">w_control_FUNC[3:0]</obj_property>
+         <obj_property name="ObjectShortName">w_control_FUNC[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_control_CRRESP">
+         <obj_property name="ElementShortName">w_control_CRRESP[4:0]</obj_property>
+         <obj_property name="ObjectShortName">w_control_CRRESP[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_control_ACFLT">
+         <obj_property name="ElementShortName">w_control_ACFLT</obj_property>
+         <obj_property name="ObjectShortName">w_control_ACFLT</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_control_ADDRFLT">
+         <obj_property name="ElementShortName">w_control_ADDRFLT</obj_property>
+         <obj_property name="ObjectShortName">w_control_ADDRFLT</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_read_status_reg[0]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="label">w_read_status_reg[0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_write_status_reg">
+         <obj_property name="ElementShortName">w_write_status_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">w_write_status_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_delay_reg">
+         <obj_property name="ElementShortName">w_delay_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">w_delay_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="vbus" fp_name="vbus541">
+         <obj_property name="label">w_acsnoop_reg[4:0]</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_acsnoop_reg[3]">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">[3]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_acsnoop_reg[2]">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">[2]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_acsnoop_reg[1]">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">[1]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_acsnoop_reg[0]">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_addr_size_reg">
+         <obj_property name="ElementShortName">w_addr_size_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">w_addr_size_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_base_addr_reg">
+         <obj_property name="ElementShortName">w_base_addr_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">w_base_addr_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_mem_size_Data">
+         <obj_property name="ElementShortName">w_mem_size_Data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">w_mem_size_Data[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_devil_busy">
+         <obj_property name="ElementShortName">w_devil_busy</obj_property>
+         <obj_property name="ObjectShortName">w_devil_busy</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_register_file_inst/o_status_BUSY">
+         <obj_property name="ElementShortName">o_status_BUSY</obj_property>
+         <obj_property name="ObjectShortName">o_status_BUSY</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_register_file_inst/i_status_BUSY_hw_set">
+         <obj_property name="ElementShortName">i_status_BUSY_hw_set</obj_property>
+         <obj_property name="ObjectShortName">i_status_BUSY_hw_set</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_register_file_inst/o_control_STENDEN">
+         <obj_property name="ElementShortName">o_control_STENDEN</obj_property>
+         <obj_property name="ObjectShortName">o_control_STENDEN</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_register_file_inst/o_sneak_addr_data">
+         <obj_property name="ElementShortName">o_sneak_addr_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">o_sneak_addr_data[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_register_file_inst/o_sneak_snoop_data">
+         <obj_property name="ElementShortName">o_sneak_snoop_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">o_sneak_snoop_data[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider687" type="divider">
+      <obj_property name="label">BRAM_Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/S_AXI_ACLK">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/S_AXI_ARESETN">
+      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/fsm_read_data">
+      <obj_property name="ElementShortName">fsm_read_data[2:0]</obj_property>
+      <obj_property name="ObjectShortName">fsm_read_data[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/i_base_addr">
+      <obj_property name="ElementShortName">i_base_addr[14:0]</obj_property>
+      <obj_property name="ObjectShortName">i_base_addr[14:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/i_wrdata">
+      <obj_property name="ElementShortName">i_wrdata[511:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wrdata[511:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/r_bram_wrdata">
+      <obj_property name="ElementShortName">r_bram_wrdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_bram_wrdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/r_bram_addr">
+      <obj_property name="ElementShortName">r_bram_addr[14:0]</obj_property>
+      <obj_property name="ObjectShortName">r_bram_addr[14:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/r_word_index">
+      <obj_property name="ElementShortName">r_word_index[3:0]</obj_property>
+      <obj_property name="ObjectShortName">r_word_index[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/i_trigger">
+      <obj_property name="ElementShortName">i_trigger</obj_property>
+      <obj_property name="ObjectShortName">i_trigger</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/o_bram_en">
+      <obj_property name="ElementShortName">o_bram_en</obj_property>
+      <obj_property name="ObjectShortName">o_bram_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/o_bram_we">
+      <obj_property name="ElementShortName">o_bram_we[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_bram_we[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/o_busy">
+      <obj_property name="ElementShortName">o_busy</obj_property>
+      <obj_property name="ObjectShortName">o_busy</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/bram_interface_inst/o_end">
+      <obj_property name="ElementShortName">o_end</obj_property>
+      <obj_property name="ObjectShortName">o_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider476" type="divider">
+      <obj_property name="label">BRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/clka">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/ena">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/wea">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/addra">
+      <obj_property name="ElementShortName">addra[12:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[12:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/dina">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/douta">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/clkb">
+      <obj_property name="ElementShortName">clkb</obj_property>
+      <obj_property name="ObjectShortName">clkb</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/enb">
+      <obj_property name="ElementShortName">enb</obj_property>
+      <obj_property name="ObjectShortName">enb</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/web">
+      <obj_property name="ElementShortName">web[0:0]</obj_property>
+      <obj_property name="ObjectShortName">web[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/addrb">
+      <obj_property name="ElementShortName">addrb[12:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[12:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/dinb">
+      <obj_property name="ElementShortName">dinb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/blk_mem_gen_0/doutb">
+      <obj_property name="ElementShortName">doutb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider1211" type="divider">
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/i_acaddr_snapshot">
+      <obj_property name="ElementShortName">i_acaddr_snapshot[43:0]</obj_property>
+      <obj_property name="ObjectShortName">i_acaddr_snapshot[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/match_pattern_inst/o_match_offset">
+      <obj_property name="ElementShortName">o_match_offset[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_match_offset[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/r_output_addr">
+      <obj_property name="ElementShortName">r_output_addr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">r_output_addr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/devil_controller_inst/o_output_addr">
+      <obj_property name="ElementShortName">o_output_addr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">o_output_addr[43:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/devil_tb/DUT/design_1_i/backstabber_0/inst/w_output_addr">
+      <obj_property name="ElementShortName">w_output_addr[43:0]</obj_property>
+      <obj_property name="ObjectShortName">w_output_addr[43:0]</obj_property>
+   </wvobject>
+</wave_config>
