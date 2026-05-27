@@ -1,6 +1,6 @@
 # Coherent Trojan Tool
 
-This GitHub repository aggregates the artifacts of the paper "Devil-in-FPGA: Coherent Trojans in Reconfigurable Heterogeneous Systems" submitted to IEEE S&P'26. 
+This GitHub repository aggregates the artifacts of the paper "Devil-in-FPGA: Coherent Trojans in Reconfigurable Heterogeneous Systems" submitted to IEEE ACSAC 2026. 
 Specifically, it open-sources a runtime configurable tool designed with a dual purpose – advancing practical research and serving as a hackers’ playground. 
 It was developed to serve as a ”Swiss army knife” for creating coherent accelerators on the considered system architecture allowing the creation of endless Coherent Trojans as well as defense mechanisms for such threat. 
 
